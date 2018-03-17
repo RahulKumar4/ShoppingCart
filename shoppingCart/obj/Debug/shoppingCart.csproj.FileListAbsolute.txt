@@ -51,3 +51,7 @@ C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Newtonsoft.J
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\obj\Debug\shoppingCart.csprojResolveAssemblyReference.cache
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\obj\Debug\shoppingCart.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\obj\Debug\shoppingCart.pdb
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.dll
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.SqlServer.dll
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.xml
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.SqlServer.xml
