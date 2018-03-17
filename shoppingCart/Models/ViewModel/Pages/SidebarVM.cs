@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace shoppingCart.Models.ViewModel.Pages
 {
@@ -18,6 +19,7 @@ namespace shoppingCart.Models.ViewModel.Pages
             Body = row.Body;
         }
         public int id { get; set; }
+        [AllowHtml]
         public string Body { get; set; }
     }
 }
