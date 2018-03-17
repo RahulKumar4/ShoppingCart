@@ -204,14 +204,72 @@ namespace shoppingCart.Areas.Admin.Controllers
 
                 db.Pages.Remove(dto);
 
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
             //set temp message (SM -> Sucess message)
             TempData["SM"] = "You have deleted the page!";
 
             //After save redirect to add page.
             return RedirectToAction("Index");
-            
+
+        }
+
+        // POST: Admin/Pages/ReorderPages
+        [HttpPost]
+        public void ReorderPages(int[] id)
+        {
+
+            using (DB db = new DB())
+            {
+                //initialize count
+                int count = 1;
+
+                //declare dto
+                PageDTO dto;
+
+
+                //set shorting each page
+                foreach (var PageId in id)
+                {
+                    dto = db.Pages.Find(PageId);
+                    dto.shorting = count;
+
+                    db.SaveChanges();
+
+                    count++;
+                }
+            }
+        }
+
+        // GET: Admin/Pages/EditSidebar/
+        [HttpGet]
+        public ActionResult EditSidebar()
+        {
+            SidebarVM model;
+            using (DB db = new DB())
+            {
+                SidebarDTO dto = db.Sidebar.Find(1);
+
+                model = new SidebarVM(dto);
+            }
+            return View(model);
+        }
+
+        // POST: Admin/Pages/EditSidebar/
+        [HttpPost]
+        public ActionResult EditSidebar(SidebarVM model)
+        {
+
+            using (DB db = new DB())
+            {
+                SidebarDTO dto = db.Sidebar.Find(1);
+
+                dto.Body = model.Body;
+
+                db.SaveChanges();
+            }
+            TempData["SM"] = "You have edited the sidebar!";
+            return RedirectToAction("EditSidebar");
         }
     }
 }
