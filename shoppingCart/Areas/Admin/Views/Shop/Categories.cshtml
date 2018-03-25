@@ -1,0 +1,237 @@
+﻿@model IEnumerable<shoppingCart.Models.ViewModel.Shop.CategoriesVM>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+<div class="new-cat">
+    <input type="text" id="newcatname" placeholder="Category Name" />
+    <input type="text" id="newcatdesc" placeholder="Description" />
+    <p>
+        <a href="#" id="newcata">Add a new  category</a>
+        <span class="ajax-text" hidden="hidden">
+            <img src="~/Content/img/ajax-loader.gif" />
+        </span>
+    </p>
+</div>
+
+@if (!Model.Any())
+{
+    <h1 class="text-center">There are no categories.</h1>
+}
+else
+{
+    <table class="table sorting categories" id="pages">
+        <tr class="home">
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr id="id_@item.Id">
+                <td>
+                    <div class="ajaxdivtd">
+
+                    </div>
+                </td>
+
+                <td>
+                    @Html.EditorFor(modelItem => item.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => item.Description, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteCategory", new { id = item.Id }, new { @class = "delete" })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+@section scripts
+{
+
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script>
+
+        /*
+        *Add new cagegory
+        */
+        var newCatA = $("a#newcata");
+        var newCatTextInput = $("#newcatname");
+        var newCatDescInput = $("#newcatdesc");
+        var ajaxText = $("span.ajax-text");
+        var table = $("table#pages tbody");
+
+        newCatTextInput.keyup(function (e) {
+            if (e.keyCode == 13) {
+                newCatA.click();
+            }
+
+        });
+
+
+        newCatA.click(function (e) {
+
+            e.preventDefault();
+
+            var catName = newCatTextInput.val();
+            var catDesc = newCatDescInput.val();
+
+            if (catName.length < 2) {
+                alert("Category name must be atleast 2 characters long.");
+                return false;
+            }
+
+            ajaxText.show();
+
+            var url = "/admin/shop/AddNewCategory";
+
+            $.post(url, { catName: catName, catDesc: catName }, function (data) {
+
+                var response = data.trim();
+
+                if (response == "titletaken") {
+                    ajaxText.html("<span class ='alert alert-danger'>That title is taken!</span>");
+                    setTimeout(function () {
+                        ajaxText.fadeOut("fast", function () {
+                            ajaxText.html("<img src= /Content/img/ajax-loader.gif/>");
+                        });
+                    }, 2000);
+                    return false;
+                }
+                else {
+                    if (!$("table#pages").length) {
+                        location.reload();
+                    } else {
+
+                        ajaxText.html("<span class ='alert alert-success'>The category has been added.</span>");
+                        setTimeout(function () {
+                            ajaxText.fadeOut("fast", function () {
+                                ajaxText.html("<img src= /Content/img/ajax-loader.gif/>");
+                            });
+                        }, 2000);
+                        newCatTextInput.val("");
+                        newCatDescInput.val("");
+
+                        var toAppend = $("table#pages tbody tr:last").clone();
+                        toAppend.attr("id", "id_" + data);
+                        toAppend.find("#item_Name").val(catName);
+                        toAppend.find("#item_Description").val(catDesc);
+                        toAppend.find("a.delete").attr("href", "/admin/shop/DeleteCategory/" + data);
+                        table.append(toAppend);
+                        table.sortable("refresh");
+
+                    }
+                }
+            });
+        });
+
+        ////////////////////////////////////////////////////
+
+        /*
+       *Reorder categories
+       */
+
+        $("table#pages tbody").sortable({
+            items: "tr:not(.home)",
+            placeholder: "ui-state-highlight",
+            update: function () {
+                var ids = $("table#pages tbody").sortable("serialize");
+                var url = "/Admin/shop/ReorderCagegories";
+                $.post(url, ids, function (data) { });
+            }
+        });
+
+        /*
+      *Confirm deletion
+      */
+        $(function () {
+            $("body").on("click", "a.delete", function () {
+                if (!confirm("Confirm page deletion"))
+                    return false;
+            });
+        });
+
+        /////////////////////////////////////////////////////////
+        /*
+         *Edit categories
+         */
+
+        var OriginalName;
+        var OriginalDesc
+        $("table#pages input.text-box").dblclick(function () {
+            var row = $(this).parent().parent();
+            OriginalName = row.find("#item_Name").val();
+            OriginalDesc = row.find("#item_Description").val();
+            row.find("#item_Name").attr("readonly", false);
+            row.find("#item_Description").attr("readonly", false);
+
+        });
+        $("table#pages input.text-box").keyup(function (e) {
+            if (e.keyCode == 13) {
+                $(this).blur();
+            }
+        });
+        $("table#pages input.text-box").blur(function () {
+
+            var $this = $(this);
+            var row = $(this).parent().parent();
+            var ajaxdiv = row.find(".ajaxdivtd");
+            var newCatName = row.find("#item_Name").val();
+            var newCatDesc = row.find("#item_Description").val();
+            var id = row.attr("id").substring(3);
+            var url = "/admin/shop/EditCategory";
+
+            if (newCatName.length < 2) {
+                alert("Category name must be atleast 2 characters long.");
+                row.find("#item_Name").val(OriginalName);
+                row.find("#item_Description").val(OriginalDesc);
+                row.find("#item_Name").attr("readonly", true);
+                row.find("#item_Description").attr("readonly", true);
+                return false;
+            }
+
+            $.post(url, { Name: newCatName, Desc: newCatDesc, Id: id }, function (data) {
+
+                var response = data.trim();
+
+                if (response == "titletaken") {
+                    row.find("#item_Name").val(OriginalName);
+                    row.find("#item_Description").val(OriginalDesc);
+                    ajaxdiv.html("<span class ='alert alert-danger'>That title is taken!</span>").show();
+                }
+                else {
+                    ajaxdiv.html("<span class ='alert alert-success'>That category has been changed!</span>").show();
+                }
+
+                setTimeout(function () {
+                    ajaxdiv.fadeOut("fast", function () {
+                        ajaxdiv.html("");
+                    });
+                }, 2000);
+            }).done(function () {
+                row.find("#item_Name").attr("readonly", true);
+                row.find("#item_Description").attr("readonly", true);
+            });
+
+        });
+
+
+        ///////////////////////////////////////////////////////////////////
+
+    </script>
+
+
+}

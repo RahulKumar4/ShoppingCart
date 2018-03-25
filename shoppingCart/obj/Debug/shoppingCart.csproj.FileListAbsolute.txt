@@ -15,6 +15,8 @@ C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\shoppingCart
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\shoppingCart.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\shoppingCart.pdb
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Antlr3.Runtime.dll
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.dll
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.SqlServer.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.AI.Agent.Intercept.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.AI.DependencyCollector.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -25,6 +27,8 @@ C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.Ap
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.Web.Infrastructure.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Newtonsoft.Json.dll
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\PagedList.dll
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\PagedList.Mvc.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.Helpers.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.Mvc.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.Optimization.dll
@@ -33,12 +37,16 @@ C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.W
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.WebPages.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.WebPages.Razor.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\WebGrease.dll
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.xml
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.SqlServer.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.AI.DependencyCollector.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.AI.Web.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.AI.WindowsServer.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.ApplicationInsights.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\PagedList.xml
+C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\PagedList.Mvc.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.Helpers.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.Mvc.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.Optimization.xml
@@ -48,10 +56,5 @@ C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.W
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\System.Web.WebPages.Razor.xml
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Antlr3.Runtime.pdb
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\Newtonsoft.Json.xml
-C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\obj\Debug\shoppingCart.csprojResolveAssemblyReference.cache
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\obj\Debug\shoppingCart.dll
 C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\obj\Debug\shoppingCart.pdb
-C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.dll
-C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.SqlServer.dll
-C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.xml
-C:\DATA\Rahul\SourceCode\ShoppingCart\shoppingCart\shoppingCart\bin\EntityFramework.SqlServer.xml
